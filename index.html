@@ -7,14 +7,15 @@
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
         <meta name="robots" content="noindex,nofollow" />
 
-        <link href="./tyrano/tyrano.css" rel="stylesheet" />
-        <link href="./tyrano/libs/jquery-ui/jquery-ui.css" rel="stylesheet" />
+        <!-- CSS -->
+        <link href="tyrano.css" rel="stylesheet" />
+        <link href="libs/jquery-ui/jquery-ui.css" rel="stylesheet" />
 
         <!-- jQuery -->
-        <script src="./tyrano/libs/jquery-3.6.0.min.js"></script>
+        <script src="libs/jquery-3.6.0.min.js"></script>
         <script>
             try {
-                window.jQuery = window.$ = require("./tyrano/libs/jquery-3.6.0.min.js");
+                window.jQuery = window.$ = require("libs/jquery-3.6.0.min.js");
             } catch (e) {}
             
             try{
@@ -23,7 +24,7 @@
                     //Win Macなど パッケージング時 
                     window.studio_api = window.studio_api;
                     window.process = window.studio_api.ipcRenderer.sendSync("getProcess");
-                }else if (window.opener.window.studio_api) {
+                }else if (window.opener && window.opener.window && window.opener.window.studio_api) {
                     //プレビューのとき
                     window.studio_api = window.opener.window.studio_api;
                     window.process = window.opener.window.studio_api.ipcRenderer.sendSync("getProcess");
@@ -36,58 +37,60 @@
         </script>
 
         <!-- jQuery Plugins -->
-        <script src="./tyrano/libs/jquery-migrate-1.4.1.js"></script>
-        <script src="./tyrano/libs/jquery-ui/jquery-ui.min.js"></script>
-        <script src="./tyrano/libs/jquery.a3d.js"></script>
-        <script src="./tyrano/libs/jsrender.min.js"></script>
+        <script src="libs/jquery-migrate-1.4.1.js"></script>
+        <script src="libs/jquery-ui/jquery-ui.min.js"></script>
+        <script src="libs/jquery.a3d.js"></script>
+        <script src="libs/jsrender.min.js"></script>
 
         <!-- 廃止予定 alertify.js -->
-        <link href="./tyrano/libs/alertify/alertify.core.css" rel="stylesheet" />
-        <link href="./tyrano/libs/alertify/alertify.default.css" rel="stylesheet" />
-        <script src="./tyrano/libs/alertify/alertify.min.js"></script>
+        <link href="libs/alertify/alertify.core.css" rel="stylesheet" />
+        <link href="libs/alertify/alertify.default.css" rel="stylesheet" />
+        <script src="libs/alertify/alertify.min.js"></script>
 
         <!-- remodal -->
-        <link href="./tyrano/libs/remodal/remodal.css" rel="stylesheet" />
-        <link href="./tyrano/libs/remodal/remodal-default-theme.css" rel="stylesheet" />
-        <script src="./tyrano/libs/remodal/remodal.js"></script>
+        <link href="libs/remodal/remodal.css" rel="stylesheet" />
+        <link href="libs/remodal/remodal-default-theme.css" rel="stylesheet" />
+        <script src="libs/remodal/remodal.js"></script>
 
         <!-- html2canvas -->
-        <script src="./tyrano/libs/html2canvas.js"></script>
+        <script src="libs/html2canvas.js"></script>
 
-        <!-- KeyConfig.js -->
-        <script src="./data/system/KeyConfig.js"></script>
+        <!-- KeyConfig.js (system フォルダにあるためパスを修正) -->
+        <script src="system/KeyConfig.js"></script>
 
-        <!-- tyrano -->
-        <script src="./tyrano/lang.js"></script>
-        <script src="./tyrano/libs.js"></script>
-        <script src="./tyrano/tyrano.js"></script>
-        <script src="./tyrano/tyrano.base.js"></script>
-        <script src="./tyrano/plugins/kag/kag.js"></script>
-        <script src="./tyrano/plugins/kag/kag.event.js"></script>
-        <script src="./tyrano/plugins/kag/kag.key_mouse.js"></script>
-        <script src="./tyrano/plugins/kag/kag.layer.js"></script>
-        <script src="./tyrano/plugins/kag/kag.menu.js"></script>
-        <script src="./tyrano/plugins/kag/kag.parser.js"></script>
-        <script src="./tyrano/plugins/kag/kag.rider.js"></script>
-        <script src="./tyrano/plugins/kag/kag.studio_v6.js"></script>
-        <script src="./tyrano/plugins/kag/kag.tag_audio.js"></script>
-        <script src="./tyrano/plugins/kag/kag.tag_camera.js"></script>
-        <script src="./tyrano/plugins/kag/kag.tag_ext.js"></script>
-        <script src="./tyrano/plugins/kag/kag.tag_system.js"></script>
-        <script src="./tyrano/plugins/kag/kag.tag_vchat.js"></script>
-        <script src="./tyrano/plugins/kag/kag.tag_ar.js"></script>
-        <script src="./tyrano/plugins/kag/kag.tag_three.js"></script>
-        <script src="./tyrano/plugins/kag/kag.tag.js"></script>
+        <!-- tyrano core files (ルート直下に置かれている想定) -->
+        <script src="lang.js"></script>
+        <script src="libs.js"></script>
+        <script src="tyrano.js"></script>
+        <script src="tyrano.base.js"></script>
+
+        <!-- plugins -->
+        <script src="plugins/kag/kag.js"></script>
+        <script src="plugins/kag/kag.event.js"></script>
+        <script src="plugins/kag/kag.key_mouse.js"></script>
+        <script src="plugins/kag/kag.layer.js"></script>
+        <script src="plugins/kag/kag.menu.js"></script>
+        <script src="plugins/kag/kag.parser.js"></script>
+        <script src="plugins/kag/kag.rider.js"></script>
+        <script src="plugins/kag/kag.studio_v6.js"></script>
+        <script src="plugins/kag/kag.tag_audio.js"></script>
+        <script src="plugins/kag/kag.tag_camera.js"></script>
+        <script src="plugins/kag/kag.tag_ext.js"></script>
+        <script src="plugins/kag/kag.tag_system.js"></script>
+        <script src="plugins/kag/kag.tag_vchat.js"></script>
+        <script src="plugins/kag/kag.tag_ar.js"></script>
+        <script src="plugins/kag/kag.tag_three.js"></script>
+        <script src="plugins/kag/kag.tag.js"></script>
 
         <!-- Others -->
-        <link href="./tyrano/libs/textillate/assets/animate.css" rel="stylesheet" />
-        <script src="./tyrano/libs/textillate/assets/jquery.lettering.js"></script>
-        <script src="./tyrano/libs/textillate/jquery.textillate.js"></script>
-        <script src="./tyrano/libs/jquery.touchSwipe.min.js"></script>
-        <script src="./tyrano/libs/howler.js"></script>
-        <script src="./tyrano/libs/jsQR.js"></script>
-        <script src="./tyrano/libs/anime.min.js"></script>
-        <script src="./tyrano/libs/lz-string.min.js"></script>
+        <link href="libs/textillate/assets/animate.css" rel="stylesheet" />
+        <script src="libs/textillate/assets/jquery.lettering.js"></script>
+        <script src="libs/textillate/jquery.textillate.js"></script>
+        <script src="libs/jquery.touchSwipe.min.js"></script>
+        <script src="libs/howler.js"></script>
+        <script src="libs/jsQR.js"></script>
+        <script src="libs/anime.min.js"></script>
+        <script src="libs/lz-string.min.js"></script>
         
     </head>
 
@@ -119,9 +122,5 @@
             <button data-remodal-action="cancel" id="remodal-cancel" class="remodal-cancel">Cancel</button>
             <button data-remodal-action="confirm" id="remodal-confirm" class="remodal-confirm">OK</button>
         </div>
-        
-        
-        
-        
     </body>
 </html>
